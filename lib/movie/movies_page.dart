@@ -1,9 +1,9 @@
 import 'dart:io';
 
 import 'package:flutter/material.dart';
-import 'package:mood_based/components/colors.dart';
-import 'package:mood_based/components/design_patterns.dart';
-import 'package:mood_based/components/text_styles.dart';
+import 'package:media_recom/components/colors.dart';
+import 'package:media_recom/components/design_patterns.dart';
+import 'package:media_recom/components/text_styles.dart';
 import 'package:webview_flutter/webview_flutter.dart';
 
 class MoviesPage extends StatefulWidget {
@@ -35,14 +35,14 @@ class _MoviesPageState extends State<MoviesPage> {
       ),
     )
     ..loadRequest(
-      Uri.parse('https://mood2movie.com'),
+      Uri.parse('https://horjuntv.com.tm/tm'),
     );
 
   bool isCollapsed = true;
   bool isCollapsed2 = true;
   static Future<String> get _url async {
     await Future.delayed(const Duration(seconds: 2));
-    return 'https://mood2movie.com/';
+    return 'https://horjuntv.com.tm/tm/';
   }
 
   Future<bool> _onWillPop(BuildContext context) async {
@@ -81,7 +81,8 @@ class _MoviesPageState extends State<MoviesPage> {
               setState(() {
                 checkUserConnection();
                 Navigator.of(context).pushAndRemoveUntil<void>(
-                  MaterialPageRoute<void>(builder: (BuildContext context) => const MoviesPage()),
+                  MaterialPageRoute<void>(
+                      builder: (BuildContext context) => const MoviesPage()),
                   ModalRoute.withName('/'),
                 );
               });
@@ -95,7 +96,8 @@ class _MoviesPageState extends State<MoviesPage> {
         child: FutureBuilder(
             future: _url,
             builder: (context, snap) {
-              var styleFrom = ElevatedButton.styleFrom(shape: const StadiumBorder());
+              var styleFrom =
+                  ElevatedButton.styleFrom(shape: const StadiumBorder());
               return activeConnection
                   ? snap.hasData
                       ? Column(
@@ -115,7 +117,8 @@ class _MoviesPageState extends State<MoviesPage> {
                                   onPressed: () {
                                     controller.goForward();
                                   },
-                                  child: const Icon(Icons.arrow_forward_rounded),
+                                  child:
+                                      const Icon(Icons.arrow_forward_rounded),
                                 ),
                               ],
                             ),
@@ -138,9 +141,13 @@ class _MoviesPageState extends State<MoviesPage> {
                         color: AppColors.blueGrey,
                         child: Padding(
                           padding: const EdgeInsets.all(8.0),
-                          child: Text('Network error. Please connect to the \ninternet and refresh page',
+                          child: Text(
+                              'Network error. Please connect to the \ninternet and refresh page',
                               textAlign: TextAlign.center,
-                              style: amberText(fontSize: 20, color: const Color.fromARGB(255, 255, 17, 0))),
+                              style: amberText(
+                                  fontSize: 20,
+                                  color:
+                                      const Color.fromARGB(255, 255, 17, 0))),
                         ),
                       ),
                     );

@@ -1,4 +1,4 @@
-# mood_based
+# media_recom
 
 A new Flutter project.
 

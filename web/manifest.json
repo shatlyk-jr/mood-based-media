@@ -1,6 +1,6 @@
 {
-    "name": "mood_based",
-    "short_name": "mood_based",
+    "name": "media_recom",
+    "short_name": "media_recom",
     "start_url": ".",
     "display": "standalone",
     "background_color": "#0175C2",
